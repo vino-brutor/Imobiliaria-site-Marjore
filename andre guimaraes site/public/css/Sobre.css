@@ -1,0 +1,66 @@
+.sobre-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.text-quemSouEu {
+  text-align: center;
+}
+.text-quemSouEu h1 {
+  color: #2e3192;
+  font-size: 80px;
+  transition: 0.5s;
+}
+
+.contact-link {
+  text-decoration: underline;
+  color: #fef102;
+}
+.contact-link:hover {
+  color: #2e3192;
+}
+
+.experiencia {
+  font-weight: bolder;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card-custom {
+  width: 18rem;
+  height: 38vh;
+  border-color: #fef102;
+}
+
+footer {
+  margin-top: 80px;
+}
+
+@media (max-width: 770px) {
+  .text-quemSouEu h1 {
+    font-size: 60px;
+  }
+  .text-quemSouEu .card-text {
+    font-size: 13px;
+  }
+}
+@media (max-width: 550px) {
+  .text-quemSouEu h1 {
+    font-size: 30px;
+    padding-top: 10px;
+  }
+  .text-quemSouEu .card-text {
+    font-size: 11px;
+  }
+}
+
+/*# sourceMappingURL=Sobre.css.map */

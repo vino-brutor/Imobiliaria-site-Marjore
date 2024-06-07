@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./node_modules/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="shortcut icon" href="img/icon_8373fb97c28c497d859fb01ab5655d84.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>André Guimarães - Home</title>
+  </head>
+  <body>
+    <!--Navbar aqui-->
+    <nav class="container-fluid navbar navbar-expand-sm">
+      <a class="navbar-brand ps-5" href="#"><img class="logo-nav" src="img/AndreGuimaraesLogo.png" alt="Logo"></a>
+      <button class="navbar-toggler d-lg-none me-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse px-5" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto ms-auto mt-2 mt-lg-0">
+          <li class="nav-item active px-2">
+            <a class="nav-link" href="#">HOME</a>
+          </li>
+          <li class="nav-item px-2">
+            <a class="nav-link" href="Sobre.html">SOBRE</a>
+          </li>
+          <li class="nav-item px-2">
+            <a class="nav-link" href="contato.html">CONTATO</a>
+          </li>
+          <li class="nav-item px-2">
+            <a class="nav-link" href="admin.html">ADMIN</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!--Carousel aqui-->
+    <!-- <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image: url('https://st3.depositphotos.com/4489556/15083/i/1600/depositphotos_150837732-stock-photo-two-story-house-with-open.jpg'); background-size: cover;  background-position: center; 
+        background-repeat: no-repeat;">
+          <div class="swiper-caption">
+            <a href="#">
+              <h5>Bairro da casa - numero </h5>
+              <p>Lorem ipsum dolor sit amet consectetur.</p>
+            </a>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('https://st4.depositphotos.com/1625039/20527/i/1600/depositphotos_205277770-stock-photo-beautiful-new-contempory-suburban-houses.jpg'); background-size: cover;  background-position: center; 
+        background-repeat: no-repeat;">
+          <div class="swiper-caption">
+            <a href="#" >
+              <h5>Bairro da casa- número</h5>
+              <p>Lorem ipsum dolor sit amet consectetur.</p>
+            </a>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('https://st3.depositphotos.com/1041088/13069/i/1600/depositphotos_130697674-stock-photo-luxury-house-exterior-with-red.jpg'); background-size: cover;  background-position: center; 
+        background-repeat: no-repeat;">
+          <div class="swiper-caption">
+            <a href="#" >
+              <h5>Bairro da casa - Número</h5>
+              <p>Lorem ipsum dolor sit amet consectetur.</p>
+            </a>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('https://st3.depositphotos.com/1041088/13864/i/1600/depositphotos_138643152-stock-photo-new-construction-home-with-low.jpg'); background-size: cover;  background-position: center; 
+        background-repeat: no-repeat;">
+          <div class="swiper-caption">
+            <a href="#" >
+              <h5>Bairro da casa - Número</h5>
+              <p>Lorem ipsum dolor sit amet consectetur.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-next" style="color: #2e3192; font-weight: 600;"></div>
+      <div class="swiper-button-prev" style="color: #2e3192; font-weight: 600; "></div>
+      <div class="swiper-pagination" style="background-color: #fef1025d;"></div>
+    </div> -->
+
+    <div class="container mt-3">
+      <h2 class="pb-2">Imóveis Dísponíveis: </h2>
+      <div id="properties" class="row"></div>
+    </div>
+  
+    <footer class="container-fluid">
+      <a class="navbar-brand ps-5" href="index.html"><img class="logo-foot" src="img/AndreGuimaraesLogo.png" alt="Logo"></a>
+      <div>
+        <a class="link-footer" href="contato.html">Se interessou por algum imovél? Entre em contato!</a>
+        <ul>
+          <li><h6>Celular: (51) 99972-5564 <i class="bi bi-phone icon-footer"></i></h6></li>
+          <li><h6>Telefone:(51) 3126-4905 <i class="bi bi-telephone icon-footer"></i></h6></li>
+          <li><h6>Email: andreguimaraesimovel@terra.com.br <i class="bi bi-envelope-at icon-footer"></i><h6></li>
+          <li><h6>Endereço: Rua coronel Massot - 1064</h6></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="node_modules/swiper/swiper-bundle.min.js"></script>
+    <script type="module" src="JS/main.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script>
+    //   document.addEventListener('DOMContentLoaded', async () => {
+    //   const res = await fetch('/api/imoveis');
+    //   const properties = await res.json();
+
+    //   const propertiesContainer = document.getElementById('properties');
+    //   properties.forEach(property => {
+    //     const propertyCard = document.createElement('div');
+    //     propertyCard.className = 'col-md-4 mb-4';
+    //     propertyCard.innerHTML = `
+    //       <div class="card">
+    //         <div class="swiper-container" id="swiper-${property._id}">
+    //           <div class="swiper-wrapper">
+    //             ${property.imagens.map((image, index) => `
+    //               <div class="swiper-slide">
+    //                 <img src="${image}" class="d-block w-100" alt="...">
+    //               </div>
+    //             `).join('')}
+    //           </div>
+    //           <div class="swiper-button-next swiper-button-white" style="color:#2e3192;"></div>
+    //           <div class="swiper-button-prev swiper-button-white" style="color:#2e3192;"></div>
+    //           <div class="swiper-pagination swiper-pagination-white"></div>
+    //         </div>
+    //         <div class="card-body">
+    //           <h5 class="card-title">${property.titulo}</h5>
+    //           <p class="card-text">${property.descricao}</p>
+    //           <p class="card-text">${property.endereco}</p>
+    //           <p class="card-text">R$ ${property.valor}</p>
+    //         </div>
+    //       </div>
+    //     `;
+    //     propertiesContainer.appendChild(propertyCard);
+
+    //     // Inicializar Swiper para cada propriedade
+    //     new Swiper(`#swiper-${property._id}`, {
+    //       loop: true,
+    //       navigation: {
+    //         nextEl: `#swiper-${property._id} .swiper-button-next`,
+    //         prevEl: `#swiper-${property._id} .swiper-button-prev`,
+    //       },
+    //       pagination: {
+    //         el: `#swiper-${property._id} .swiper-pagination`,
+    //         clickable: true,
+    //       },
+    //       slidesPerView: 1, // Mostra apenas uma imagem por vez
+    //       spaceBetween: 1000, // Espaço entre os slides
+    //     });
+    //   });
+    // });
+        document.addEventListener('DOMContentLoaded', async () => {
+            const res = await fetch('/api/imoveis');
+            const properties = await res.json();
+
+            const propertiesContainer = document.getElementById('properties');
+            properties.forEach(property => {
+                const propertyCard = document.createElement('div');
+                propertyCard.className = 'col-md-4 mb-4';
+                propertyCard.innerHTML = `
+                    <div class="card card-custom-imvovel">
+                        <div class="swiper-container" id="swiper-${property._id}">
+                            <div class="swiper-wrapper">
+                                ${property.imagens.map((image, index) => `
+                                    <div class="swiper-slide">
+                                        <img class="swiper-image" src="${image}" class="d-block w-100" alt="...">
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <div class="swiper-button-next swiper-button-white" style="color:#2e3192;"></div>
+                            <div class="swiper-button-prev swiper-button-white" style="color:#2e3192;"></div>
+                            <div class="swiper-pagination swiper-pagination-white"></div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${property.titulo}</h5>
+                            <p class="card-text">${property.descricao}</p>
+                            <p class="card-text"><strong>${property.endereco}</strong></p>
+                            <p class="card-text"><strong>R$ ${property.valor}</strong></p>
+                        </div>
+                    </div>
+                `;
+                propertiesContainer.appendChild(propertyCard);
+
+                // Inicializar Swiper para cada propriedade
+                new Swiper(`#swiper-${property._id}`, {
+                    loop: true,
+                    effect: 'fade', // Altere o efeito aqui
+                    fadeEffect: {
+                        crossFade: true
+                    },
+                    navigation: {
+                        nextEl: `#swiper-${property._id} .swiper-button-next`,
+                        prevEl: `#swiper-${property._id} .swiper-button-prev`,
+                    },
+                    pagination: {
+                        el: `#swiper-${property._id} .swiper-pagination`,
+                        clickable: true,
+                    },
+                    slidesPerView: 1, // Mostra apenas uma imagem por vez
+                    spaceBetween: 0, // Espaço entre os slides
+                });
+            });
+        });
+    // </script>
+  </body>
+</html>

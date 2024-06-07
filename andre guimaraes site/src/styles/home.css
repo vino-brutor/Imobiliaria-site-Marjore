@@ -1,0 +1,26 @@
+.swiper-container {
+  height: 83vh;
+  width: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.swiper-caption {
+  background: rgba(46, 49, 146, 0.5215686275); /* Fundo escuro para o texto para melhor legibilidade */
+  color: white;
+  padding: 10px;
+  text-align: center;
+  width: 40%;
+  margin-top: 50px;
+  border-radius: 0px 300px 300px 0px;
+}
+
+.link-footer {
+  color: #2e3192;
+}/*# sourceMappingURL=home.css.map */

@@ -1,0 +1,25 @@
+.contato-container {
+  display: flex;
+  justify-content: center;
+}
+.contato-container .div-text-contato {
+  text-align: center;
+}
+.contato-container .div-text-contato h1 {
+  color: #2e3192;
+  font-size: 80px;
+  transition: 0.5s;
+}
+.contato-container .div-text-contato .subtitle-contato {
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+@media (max-width: 770px) {
+  .contato-container .div-text-contato h1 {
+    font-size: 32px;
+  }
+  .contato-container .div-text-contato li {
+    font-size: 20px;
+  }
+}/*# sourceMappingURL=contatos.css.map */

@@ -1,0 +1,177 @@
+body {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  transition: 0.5s;
+}
+a:hover {
+  text-decoration: underline;
+  transition: 0.5s;
+}
+
+nav {
+  font-weight: 500;
+  color: #2e3192;
+  background-color: #fef102;
+}
+nav .logo-nav {
+  width: 70px;
+  height: 70px;
+}
+nav .nav-link {
+  transition: 0.7s;
+  font-size: 20px;
+  border-radius: 5px;
+  color: #2e3192;
+}
+nav .nav-link.nav-link:hover {
+  background-color: #2e3192;
+  color: white;
+  transition: 0.7s;
+  text-decoration: none;
+}
+nav .navbar-nav .active {
+  text-decoration: underline;
+}
+nav .navbar-toggler {
+  color: #2e3192;
+}
+
+::-webkit-scrollbar {
+  background-color: #2e3192;
+  width: 10px;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.856);
+  border-radius: 5px;
+}
+
+footer {
+  margin-top: 15px;
+  background-color: #fef102;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-foot {
+  width: 120px;
+  height: 120px;
+}
+
+.swiper-container {
+  height: 83vh;
+  width: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.swiper-caption {
+  background: rgba(46, 49, 146, 0.5215686275); /* Fundo escuro para o texto para melhor legibilidade */
+  color: white;
+  padding: 10px;
+  text-align: center;
+  width: 40%;
+  margin-top: 50px;
+  border-radius: 0px 300px 300px 0px;
+}
+
+.link-footer {
+  color: #2e3192;
+}
+
+.sobre-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80vh;
+}
+
+.text-quemSouEu {
+  text-align: center;
+}
+.text-quemSouEu h1 {
+  color: #2e3192;
+  font-size: 80px;
+  transition: 0.5s;
+}
+
+.contact-link {
+  text-decoration: underline;
+  color: #fef102;
+}
+.contact-link:hover {
+  color: #2e3192;
+}
+
+.experiencia {
+  font-weight: bolder;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card-custom {
+  width: 18rem;
+  height: 38vh;
+  border-color: #fef102;
+}
+
+@media (max-width: 770px) {
+  .text-quemSouEu h1 {
+    font-size: 60px;
+  }
+}
+@media (max-width: 500px) {
+  .text-quemSouEu h1 {
+    font-size: 30px;
+  }
+  .text-quemSouEu .card-text {
+    font-size: 10px;
+  }
+}
+.contato-container {
+  display: flex;
+  justify-content: center;
+}
+.contato-container .div-text-contato {
+  text-align: center;
+}
+.contato-container .div-text-contato h1 {
+  color: #2e3192;
+  font-size: 80px;
+  transition: 0.5s;
+}
+.contato-container .div-text-contato .subtitle-contato {
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+@media (max-width: 770px) {
+  .contato-container .div-text-contato h1 {
+    font-size: 32px;
+  }
+  .contato-container .div-text-contato li {
+    font-size: 20px;
+  }
+}/*# sourceMappingURL=style.css.map */

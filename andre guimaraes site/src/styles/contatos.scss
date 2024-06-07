@@ -1,0 +1,33 @@
+@import "./variables";
+.contato-container{
+    display: flex;
+    justify-content: center;
+    .div-text-contato{
+        text-align: center;
+        h1{
+            color: $secondary-color;
+            font-size:80px;
+            transition: 0.5s;
+        }
+        .subtitle-contato{
+            font-size: 30px;
+            text-decoration: underline;
+        }
+    }
+}
+
+
+@media (max-width:770px){
+    .contato-container{
+        .div-text-contato{
+            h1{
+                font-size: 32px;
+            }
+            li{
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+  

@@ -1,0 +1,15 @@
+$main-color: #fef102;
+$mainBlur-color: #fef1025d;
+$secondary-color:#2e3192;
+$secondaryBlur-color: #2e319285;
+
+@mixin image-style($width, $height){
+    width: $width;
+    height: $height;
+}
+
+@mixin backgroud(){
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}

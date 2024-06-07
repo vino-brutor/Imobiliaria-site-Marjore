@@ -1,0 +1,68 @@
+body {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  transition: 0.5s;
+}
+a:hover {
+  text-decoration: underline;
+  transition: 0.5s;
+}
+
+nav {
+  font-weight: 500;
+  color: #2e3192;
+  background-color: #fef102;
+}
+nav .logo-nav {
+  width: 70px;
+  height: 70px;
+}
+nav .nav-link {
+  transition: 0.7s;
+  font-size: 20px;
+  border-radius: 5px;
+  color: #2e3192;
+}
+nav .nav-link.nav-link:hover {
+  background-color: #2e3192;
+  color: white;
+  transition: 0.7s;
+  text-decoration: none;
+}
+nav .navbar-nav .active {
+  text-decoration: underline;
+}
+nav .navbar-toggler {
+  color: #2e3192;
+}
+
+::-webkit-scrollbar {
+  background-color: #2e3192;
+  width: 10px;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.856);
+  border-radius: 5px;
+}
+
+footer {
+  margin-top: 15px;
+  background-color: #fef102;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-foot {
+  width: 120px;
+  height: 120px;
+}/*# sourceMappingURL=globals.css.map */

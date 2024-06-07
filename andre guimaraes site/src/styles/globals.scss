@@ -1,0 +1,75 @@
+@import './variables';
+
+body{
+    overflow-x: hidden; 
+    @include image-style(100%, 100%)
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    transition: 0.5s;
+    &:hover{
+        text-decoration: underline;
+        transition: 0.5s;
+    }
+}
+
+nav{
+    font-weight: 500;
+   color: $secondary-color;
+    background-color: $main-color;
+    .logo-nav{
+        @include image-style(70px, 70px)
+    }
+
+    .nav-link{
+        transition: 0.7s;
+        font-size: 20px;
+        border-radius: 5px;
+        color: $secondary-color;
+        &.nav-link:hover{
+            background-color: $secondary-color;
+            color: white;
+            transition: 0.7s;
+            text-decoration: none;
+        }
+    }
+
+    .navbar-nav{
+        .active{
+            text-decoration: underline;
+        }
+    }    
+   .navbar-toggler{
+    color:$secondary-color;
+    
+   }
+    
+}
+
+::-webkit-scrollbar{
+    background-color: $secondary-color;
+    width: 10px;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgba(255, 255, 255, 0.856);
+    border-radius: 5px;
+}
+
+
+
+
+footer{
+    margin-top: 15px;
+    background-color: $main-color;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.logo-foot{
+    @include image-style(120px, 120px)
+}
+
