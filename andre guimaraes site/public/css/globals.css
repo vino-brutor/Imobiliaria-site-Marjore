@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   overflow-x: hidden;
   width: 100%;
@@ -20,8 +21,8 @@ nav {
   background-color: #fef102;
 }
 nav .logo-nav {
-  width: 70px;
-  height: 70px;
+  width: 120px;
+  height: 120px;
 }
 nav .nav-link {
   transition: 0.7s;
@@ -65,6 +66,44 @@ footer {
 .logo-foot {
   width: 120px;
   height: 120px;
+}
+
+.whatsapp-button {
+  position: fixed;
+  right: 0;
+  bottom: 50px;
+  width: 50px;
+  height: 50px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.whatsapp-button a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.whatsapp-button i {
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  width: 200px; /* Expande para 200px ao passar o mouse */
+  border-radius: 25px; /* Arredonda as bordas ao expandir */
+  content: Nós chame pelo Whats;
+}
+
+.whatsapp-button:hover i {
+  transform: scale(1.5); /* Aumenta o ícone do WhatsApp */
 }
 
 /*# sourceMappingURL=globals.css.map */

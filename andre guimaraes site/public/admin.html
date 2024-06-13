@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
 </head>
 <body>
-  <div class="container">
-    <h1 class="mt-5">Cadastro de Imóveis</h1>
+  <div class="container mt-5">
+    <h1>Cadastro de Imóveis</h1>
     <form action="/api/imoveis" method="POST" enctype="multipart/form-data" class="mt-4">
       <div class="form-group">
         <label for="titulo">Título:</label>
@@ -25,6 +25,17 @@
         <input type="text" class="form-control" id="endereco" name="endereco" required>
       </div>
       <div class="form-group">
+        <label for="bairro">Bairro:</label>
+        <input type="text" class="form-control" id="bairro" name="bairro" required>
+      </div>
+      <div class="form-group">
+        <label for="tipo">Tipo:</label>
+        <select class="form-control" id="tipo" name="tipo" required>
+          <option value="Casa">Casa</option>
+          <option value="Apartamento">Apartamento</option>
+        </select>
+      </div>
+      <div class="form-group">
         <label for="valor">Valor:</label>
         <input type="number" class="form-control" id="valor" name="valor" required>
       </div>
@@ -35,7 +46,6 @@
       <button type="submit" class="btn btn-primary">Cadastrar Imóvel</button>
     </form>
   </div>
-
   <!-- Bootstrap JS and dependencies -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>

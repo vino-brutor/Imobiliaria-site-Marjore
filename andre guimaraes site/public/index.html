@@ -15,7 +15,7 @@
   <body>
     <!--Navbar aqui-->
     <nav class="container-fluid navbar navbar-expand-sm">
-      <a class="navbar-brand ps-5" href="#"><img class="logo-nav" src="img/AndreGuimaraesLogo.png" alt="Logo"></a>
+      <a class="navbar-brand ps-5" href="#"><img class="logo-nav" src="img/AndreGuimaraesLogo Atualizada.png" alt="Logo"></a>
       <button class="navbar-toggler d-lg-none me-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
           aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -82,24 +82,56 @@
       <div class="swiper-button-prev" style="color: #2e3192; font-weight: 600; "></div>
       <div class="swiper-pagination" style="background-color: #fef1025d;"></div>
     </div> -->
+    
+    <h2>Pesquisar Imóveis</h2>
+    <form id="search-form" class="mb-5">
+        <div class="row">
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro">
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" id="tipo" name="tipo">
+                    <option value="">Tipo</option>
+                    <option value="Casa">Casa</option>
+                    <option value="Apartamento">Apartamento</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <input type="number" class="form-control" id="valor-min" name="valorMin" placeholder="Valor Mínimo">
+            </div>
+            <div class="col-md-3">
+                <input type="number" class="form-control" id="valor-max" name="valorMax" placeholder="Valor Máximo">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Pesquisar</button>
+            </div>
+        </div>
+    </form>
 
     <div class="container mt-3">
-      <h2 class="pb-2">Imóveis Dísponíveis: </h2>
+      <h2 class="pb-2">Imóveis Disponíveis: </h2>
       <div id="properties" class="row"></div>
     </div>
   
     <footer class="container-fluid">
-      <a class="navbar-brand ps-5" href="index.html"><img class="logo-foot" src="img/AndreGuimaraesLogo.png" alt="Logo"></a>
+      <a class="navbar-brand ps-5" href="index.html"><img class="logo-foot" src="img/AndreGuimaraesLogo Atualizada.png" alt="Logo"></a>
       <div>
         <a class="link-footer" href="contato.html">Se interessou por algum imovél? Entre em contato!</a>
         <ul>
-          <li><h6>Celular: (51) 99972-5564 <i class="bi bi-phone icon-footer"></i></h6></li>
-          <li><h6>Telefone:(51) 3126-4905 <i class="bi bi-telephone icon-footer"></i></h6></li>
+          <li><h6>Celular André: (51) 99972-5564 <i class="bi bi-phone icon-footer"></i></h6></li>
+          <li><h6>Celular Marjore: (51) 99260-7000<i class="bi bi-telephone icon-footer"></i></h6></li>
           <li><h6>Email: andreguimaraesimovel@terra.com.br <i class="bi bi-envelope-at icon-footer"></i><h6></li>
           <li><h6>Endereço: Rua coronel Massot - 1064</h6></li>
         </ul>
       </div>
     </footer>
+    <div class="whatsapp-button">
+      <a href="https://wa.me/5551992607000" target="_blank">
+        <i class="bi bi-whatsapp"></i>
+      </a>
+    </div>
 
     <script src="node_modules/swiper/swiper-bundle.min.js"></script>
     <script type="module" src="JS/main.js"></script>
@@ -154,58 +186,68 @@
     //     });
     //   });
     // });
-        document.addEventListener('DOMContentLoaded', async () => {
-            const res = await fetch('/api/imoveis');
-            const properties = await res.json();
+    document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const res = await fetch('/api/imoveis');
+    const properties = await res.json();
+  
+    const propertiesContainer = document.getElementById('properties');
+    properties.forEach(property => {
+      const propertyCard = document.createElement('div');
+      propertyCard.className = 'col-md-4 mb-4';
+      propertyCard.innerHTML = `
+        <div class="card card-custom-imvovel">
+          <div class="swiper-container" id="swiper-${property._id}">
+            <div class="swiper-wrapper">
+              ${property.imagens.map((image, index) => `
+                <div class="swiper-slide">
+                  <img src="${image}" class="d-block w-100" alt="...">
+                </div>
+              `).join('')}
+            </div>
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-pagination swiper-pagination-white"></div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">${property.titulo}</h5>
+            <p class="card-text">${property.descricao}</p>
+              <p class="card-text"><strong>${property.endereco} - ${property.bairro}</strong></p>
+            <p class="card-text"><strong>R$ ${property.valor}</strong></p>
+          </div>
+        </div>
+      `;
+      propertiesContainer.appendChild(propertyCard);
+  
+      // Inicializar Swiper para cada propriedade
+      new Swiper(`#swiper-${property._id}`, {
+        loop: true,
+        effect: 'fade', // Altere o efeito aqui, por exemplo, 'fade', 'cube', 'coverflow', 'flip'
+        fadeEffect: {
+          crossFade: true
+        },
+        navigation: {
+          nextEl: `#swiper-${property._id} .swiper-button-next`,
+          prevEl: `#swiper-${property._id} .swiper-button-prev`,
+        },
+        pagination: {
+          el: `#swiper-${property._id} .swiper-pagination`,
+          clickable: true,
+        },
+        slidesPerView: 1, // Mostra apenas uma imagem por vez
+        spaceBetween: 0, // Espaço entre os slides
+      });
+    });
+  } catch (error) {
+    console.error('Erro ao carregar imóveis:', error);
+  }
+});
 
-            const propertiesContainer = document.getElementById('properties');
-            properties.forEach(property => {
-                const propertyCard = document.createElement('div');
-                propertyCard.className = 'col-md-4 mb-4';
-                propertyCard.innerHTML = `
-                    <div class="card card-custom-imvovel">
-                        <div class="swiper-container" id="swiper-${property._id}">
-                            <div class="swiper-wrapper">
-                                ${property.imagens.map((image, index) => `
-                                    <div class="swiper-slide">
-                                        <img class="swiper-image" src="${image}" class="d-block w-100" alt="...">
-                                    </div>
-                                `).join('')}
-                            </div>
-                            <div class="swiper-button-next swiper-button-white" style="color:#2e3192;"></div>
-                            <div class="swiper-button-prev swiper-button-white" style="color:#2e3192;"></div>
-                            <div class="swiper-pagination swiper-pagination-white"></div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">${property.titulo}</h5>
-                            <p class="card-text">${property.descricao}</p>
-                            <p class="card-text"><strong>${property.endereco}</strong></p>
-                            <p class="card-text"><strong>R$ ${property.valor}</strong></p>
-                        </div>
-                    </div>
-                `;
-                propertiesContainer.appendChild(propertyCard);
-
-                // Inicializar Swiper para cada propriedade
-                new Swiper(`#swiper-${property._id}`, {
-                    loop: true,
-                    effect: 'fade', // Altere o efeito aqui
-                    fadeEffect: {
-                        crossFade: true
-                    },
-                    navigation: {
-                        nextEl: `#swiper-${property._id} .swiper-button-next`,
-                        prevEl: `#swiper-${property._id} .swiper-button-prev`,
-                    },
-                    pagination: {
-                        el: `#swiper-${property._id} .swiper-pagination`,
-                        clickable: true,
-                    },
-                    slidesPerView: 1, // Mostra apenas uma imagem por vez
-                    spaceBetween: 0, // Espaço entre os slides
-                });
-            });
-        });
+// Definir initPalette se ela for usada
+function initPalette() {
+  // Defina a função initPalette aqui
+  console.log('initPalette chamada');
+}
     // </script>
   </body>
 </html>

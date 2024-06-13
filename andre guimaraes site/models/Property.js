@@ -2,11 +2,15 @@
 const mongoose = require('mongoose');
 
 const ImovelSchema = new mongoose.Schema({
-  titulo: { type: String, required: true },
-  descricao: { type: String, required: true },
-  endereco: { type: String, required: true },
-  valor: { type: Number, required: true },
-  imagens: { type: [String], required: true } // Armazenará os caminhos das imagens
+  titulo: String,
+  descricao: String,
+  endereco: String,
+  bairro: String,
+  tipo: String, // Casa ou Apartamento
+  valor: Number,
+  imagens: [String]
 });
 
-module.exports = mongoose.model('Imovel', ImovelSchema);
+const Imovel = mongoose.model('Imovel', ImovelSchema);
+
+module.exports = Imovel;
