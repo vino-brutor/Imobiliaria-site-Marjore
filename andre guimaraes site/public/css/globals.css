@@ -71,9 +71,9 @@ footer {
 .whatsapp-button {
   position: fixed;
   right: 0;
-  bottom: 50px;
-  width: 50px;
-  height: 50px;
+  bottom: 400px;
+  width: 80px;
+  height: 80px;
   background-color: #25d366;
   border-radius: 50%;
   display: flex;
@@ -94,12 +94,12 @@ footer {
 
 .whatsapp-button i {
   transition: transform 0.3s ease;
+  font-size: 40px;
 }
 
 .whatsapp-button:hover {
   width: 200px; /* Expande para 200px ao passar o mouse */
   border-radius: 25px; /* Arredonda as bordas ao expandir */
-  content: Nós chame pelo Whats;
 }
 
 .whatsapp-button:hover i {

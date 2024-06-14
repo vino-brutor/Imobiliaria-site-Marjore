@@ -8,13 +8,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Conexão com o MongoDB
-mongoose.connect('mongodb+srv://vitor_bruno:V!tor210506@bancodedados.s5qqsva.mongodb.net/?retryWrites=true&w=majority&appName=bancoDeDados', {
+mongoose.connect('mongodb+srv://vitor_bruno:V!tor210506@bancodedados.s5qqsva.mongodb.net/bancoDeDados', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+}).then(() => {
+  console.log('Conectado ao MongoDB');
+}).catch((error) => {
+  console.error('Erro ao conectar ao MongoDB:', error);
 });
 
 // Usando as rotas dos imóveis
-app.use('/api/imoveis', imoveisRouter);
+app.use('/api/properties', imoveisRouter);
 
 // Servindo arquivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
@@ -38,7 +42,6 @@ app.get('/sobre', (req, res) => {
 app.get('/contato', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'contato.html'));
 });
-
 
 app.listen(3000, () => {
   console.log('Servidor rodando na porta 3000');

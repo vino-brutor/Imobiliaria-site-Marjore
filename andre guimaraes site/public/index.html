@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="./node_modules/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="shortcut icon" href="img/icon_8373fb97c28c497d859fb01ab5655d84.ico" type="image/x-icon">
@@ -135,57 +134,12 @@
 
     <script src="node_modules/swiper/swiper-bundle.min.js"></script>
     <script type="module" src="JS/main.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-    //   document.addEventListener('DOMContentLoaded', async () => {
-    //   const res = await fetch('/api/imoveis');
-    //   const properties = await res.json();
-
-    //   const propertiesContainer = document.getElementById('properties');
-    //   properties.forEach(property => {
-    //     const propertyCard = document.createElement('div');
-    //     propertyCard.className = 'col-md-4 mb-4';
-    //     propertyCard.innerHTML = `
-    //       <div class="card">
-    //         <div class="swiper-container" id="swiper-${property._id}">
-    //           <div class="swiper-wrapper">
-    //             ${property.imagens.map((image, index) => `
-    //               <div class="swiper-slide">
-    //                 <img src="${image}" class="d-block w-100" alt="...">
-    //               </div>
-    //             `).join('')}
-    //           </div>
-    //           <div class="swiper-button-next swiper-button-white" style="color:#2e3192;"></div>
-    //           <div class="swiper-button-prev swiper-button-white" style="color:#2e3192;"></div>
-    //           <div class="swiper-pagination swiper-pagination-white"></div>
-    //         </div>
-    //         <div class="card-body">
-    //           <h5 class="card-title">${property.titulo}</h5>
-    //           <p class="card-text">${property.descricao}</p>
-    //           <p class="card-text">${property.endereco}</p>
-    //           <p class="card-text">R$ ${property.valor}</p>
-    //         </div>
-    //       </div>
-    //     `;
-    //     propertiesContainer.appendChild(propertyCard);
-
-    //     // Inicializar Swiper para cada propriedade
-    //     new Swiper(`#swiper-${property._id}`, {
-    //       loop: true,
-    //       navigation: {
-    //         nextEl: `#swiper-${property._id} .swiper-button-next`,
-    //         prevEl: `#swiper-${property._id} .swiper-button-prev`,
-    //       },
-    //       pagination: {
-    //         el: `#swiper-${property._id} .swiper-pagination`,
-    //         clickable: true,
-    //       },
-    //       slidesPerView: 1, // Mostra apenas uma imagem por vez
-    //       spaceBetween: 1000, // Espaço entre os slides
-    //     });
-    //   });
-    // });
+      AOS.init()
     document.addEventListener('DOMContentLoaded', async () => {
   try {
     const res = await fetch('/api/imoveis');
@@ -210,44 +164,99 @@
             <div class="swiper-pagination swiper-pagination-white"></div>
           </div>
           <div class="card-body">
-            <h5 class="card-title">${property.titulo}</h5>
-            <p class="card-text">${property.descricao}</p>
-              <p class="card-text"><strong>${property.endereco} - ${property.bairro}</strong></p>
-            <p class="card-text"><strong>R$ ${property.valor}</strong></p>
+            <h5 class="card-title mt-2">${property.titulo}</h5>
+              <p class="card-text">${property.descricao}</p>
+                <p class="card-text"><strong>${property.endereco} - ${property.bairro}</strong></p>
+              <p class="card-text"><strong>R$ ${property.valor}</strong></p>
+            </div>
           </div>
-        </div>
-      `;
-      propertiesContainer.appendChild(propertyCard);
+        `;
+        propertiesContainer.appendChild(propertyCard);
   
-      // Inicializar Swiper para cada propriedade
-      new Swiper(`#swiper-${property._id}`, {
-        loop: true,
-        effect: 'fade', // Altere o efeito aqui, por exemplo, 'fade', 'cube', 'coverflow', 'flip'
-        fadeEffect: {
-          crossFade: true
-        },
-        navigation: {
-          nextEl: `#swiper-${property._id} .swiper-button-next`,
-          prevEl: `#swiper-${property._id} .swiper-button-prev`,
-        },
-        pagination: {
-          el: `#swiper-${property._id} .swiper-pagination`,
-          clickable: true,
-        },
-        slidesPerView: 1, // Mostra apenas uma imagem por vez
-        spaceBetween: 0, // Espaço entre os slides
+        // Inicializar Swiper para cada propriedade
+        new Swiper(`#swiper-${property._id}`, {
+          loop: true,
+          effect: 'fade', // Altere o efeito aqui, por exemplo, 'fade', 'cube', 'coverflow', 'flip'
+          fadeEffect: {
+            crossFade: true
+          },
+          navigation: {
+            nextEl: `#swiper-${property._id} .swiper-button-next`,
+            prevEl: `#swiper-${property._id} .swiper-button-prev`,
+          },
+          pagination: {
+            el: `#swiper-${property._id} .swiper-pagination`,
+            clickable: true,
+          },
+          slidesPerView: 1, // Mostra apenas uma imagem por vez
+          spaceBetween: 0, // Espaço entre os slides
+        });
       });
-    });
-  } catch (error) {
-    console.error('Erro ao carregar imóveis:', error);
-  }
-});
+    } catch (error) {
+      console.error('Erro ao carregar imóveis:', error);
+    }
+  });
+  document.getElementById('search-form').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const bairro = document.getElementById('bairro').value;
+    const tipo = document.getElementById('tipo').value;
+    const valorMin = document.getElementById('valor-min').value;
+    const valorMax = document.getElementById('valor-max').value;
 
-// Definir initPalette se ela for usada
-function initPalette() {
-  // Defina a função initPalette aqui
-  console.log('initPalette chamada');
-}
-    // </script>
+    const queryString = new URLSearchParams({ bairro, tipo, valorMin, valorMax }).toString();
+    const res = await fetch(`/api/imoveis/?${queryString}`);
+    const properties = await res.json();
+
+    const propertiesContainer = document.getElementById('properties');
+    propertiesContainer.innerHTML = ''; // Clear existing properties
+
+    properties.forEach(property => {
+        const propertyCard = document.createElement('div');
+        propertyCard.className = 'col-md-4 mb-4';
+        propertyCard.innerHTML = `
+        <div class="card card-custom-imvovel">
+          <div class="swiper-container" id="swiper-${property._id}">
+            <div class="swiper-wrapper">
+              ${property.imagens.map((image, index) => `
+                <div class="swiper-slide">
+                  <img src="${image}" class="d-block w-100" alt="...">
+                </div>
+              `).join('')}
+            </div>
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-pagination swiper-pagination-white"></div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title mt-2">${property.titulo}</h5>
+              <p class="card-text">${property.descricao}</p>
+                <p class="card-text"><strong>${property.endereco} - ${property.bairro}</strong></p>
+              <p class="card-text"><strong>R$ ${property.valor}</strong></p>
+            </div>
+          </div>
+        `;
+        propertiesContainer.appendChild(propertyCard);
+
+        // Inicializar Swiper para cada propriedade
+        new Swiper(`#swiper-${property._id}`, {
+          loop: true,
+          effect: 'fade', // Altere o efeito aqui, por exemplo, 'fade', 'cube', 'coverflow', 'flip'
+          fadeEffect: {
+            crossFade: true
+          },
+          navigation: {
+            nextEl: `#swiper-${property._id} .swiper-button-next`,
+            prevEl: `#swiper-${property._id} .swiper-button-prev`,
+          },
+          pagination: {
+            el: `#swiper-${property._id} .swiper-pagination`,
+            clickable: true,
+          },
+          slidesPerView: 1, // Mostra apenas uma imagem por vez
+          spaceBetween: 0, // Espaço entre os slides
+        });
+    });
+});
+    </script>
   </body>
 </html>

@@ -63,18 +63,10 @@ router.get('/', async (req, res) => {
     const imoveis = await Imovel.find(query);
     res.status(200).json(imoveis);
   } catch (error) {
+    console.error(error); // Loga qualquer erro que ocorrer
     res.status(500).json({ error: 'Erro ao buscar imóveis' });
   }
 });
 
-// Rota para listar imóveis (exibindo como card)
-// router.get('/', async (req, res) => {
-//   try {
-//     const imoveis = await Imovel.find();
-//     res.status(200).json(imoveis);
-//   } catch (error) {
-//     res.status(500).json({ error: 'Erro ao buscar imóveis' });
-//   }
-// });
-
 module.exports = router;
+
